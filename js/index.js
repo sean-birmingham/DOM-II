@@ -11,18 +11,16 @@ paragraphHover.forEach(paragraph => {
     });
 });
 
-let navHover = document.querySelectorAll('nav');
-
-navHover.forEach(link => {
-    link.addEventListener('mouseover', () => {
-        link.style.transition = 'linear 1.5s';
-        link.style.transform = 'rotateY(360deg)';
-    });
-    link.addEventListener('mouseout', () => {
-        link.style.transition = 'linear 1.5s';
-        link.style.transform = 'rotateY(-360deg)';
-    });
+// Click 
+let navItemClick = document.querySelectorAll('.nav-link');
+navItemClick.forEach(item => {
+    item.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.target.style.color = 'red';
+        alert('Go away');
+    })
 })
+
 // mouseenter & mouseleave
 
 let imageHover = document.querySelectorAll('img');
@@ -78,4 +76,19 @@ for (let i = 0; i < headerChangeSize.length; i++) {
 
 window.addEventListener('load', () => {
     alert('Hello World');
+});
+
+// .stopPropagation()
+
+let destinationHover = document.querySelector('.destination h4');
+
+destinationHover.addEventListener('mouseover', event => {
+    destinationHover.style.background = 'lightgrey';
+    event.stopPropagation();
+});
+
+let destinationPHover = document.querySelector('.destination');
+
+destinationPHover.addEventListener('mouseover', () => {
+    destinationPHover.style.background = 'blue';
 });
